@@ -1,0 +1,19 @@
+from math import factorial
+res ='S'
+while res == 'S' or res == 'SIM':
+    num = int(input("Digite um numero: "))
+
+    fat = factorial(num)
+    c = num
+    while c > 0:
+        print("{} ".format(c), end='')
+        print("x" if  c > 1 else "= " , end = ' ')
+        c-= 1
+    print(fat)
+
+    res = str(input("Deseja calcular novamente? [S/N]: ")).strip().upper()
+    while res != 'S' and res != 'N':
+        res = str(input("Desculpe, não entendi. Ainda deseja calcular? [S/N]: ")).strip().upper()
+
+if res == 'N' or res == 'NAO' or res == 'NÃO':
+   print("Volte sempre! ")
