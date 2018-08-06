@@ -1,0 +1,31 @@
+from random import randint
+import playsound
+
+
+
+res = 'S'
+print("-="*30)
+print("          ADIVINHE O NÚMERO QUE ESTOU PENSANDO\n                  (de 1 a 10)")
+print("-="*30)
+
+print("Sou seu computador e estou pensando em um número. Você seria capaz de adivinhar?")
+while res != 'N' and res != 'NAO' and res!= 'NÃO':
+
+    num = int(input("Seu número: "))
+    comp = randint(1, 10)
+    while num != comp:
+        if num > comp:
+            print("Menos!")
+        elif num < comp:
+            print("Mais!")
+        playsound.playsound("Errou!!!.mp3")
+        num = int(input("Errou! Tente novamente.\nSeu número: "))
+
+    if num == comp:
+        playsound.playsound("Acertou mizeravi.mp3")
+        print("ACERTOU! Eu pensei no número {} e você no {} também!".format(comp, num))
+    res = str(input("Quer jogar mais 1? [S/N]: ")).strip().upper()
+    while res != 'SIM' and res != 'S' and res != 'N' and res != 'NAO' and res!= 'NÃO':
+        res = str(input("Não entendi! Você quer jogar mais 1? [S/N]: ")).strip().upper()
+    playsound.playsound('Som de moeda do sonic mp3.mp3')
+print("Ok. Volte sempre!")
