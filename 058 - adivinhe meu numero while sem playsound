@@ -1,0 +1,38 @@
+from random import randint
+from time import sleep
+denovo = 'S'
+
+#importando  bibliotecas e declarando variáveis.
+
+print("-="*30)
+print("                  ADIVINHE O NÚMERO\n                      (de 1 a 10)")
+print("-="*30)
+print("""Sou seu computador e estou pensando em um número. Você seria capaz de adivinha-lo?""")
+#Interface semi-gráfica
+
+while denovo == 'S' or denovo == 'SIM': 
+  num = int(input("Seu número: "))
+  comp = randint(1, 10)
+  palp = 0
+  #enquanto denovo(la embaixo) for sim para repetir o jogo, repita.  
+
+  while num != comp:
+    print("ERROOOOOU!!!")
+    if num > comp:
+        onde = 'Menos!'
+    elif num < comp:
+        onde = 'Mais!'
+    palp += 1
+    print(onde)
+    num = int(input("Tente novamente!\nSeu número: "))
+    #Enquanto você errar, aparecerá essa mensagem avisando do erro e indicando se o valor está acima ou abaixo do palpite. Tambem uma contagem de palpites.
+    #e a possibilidade para você tentar um número mais uma vez
+
+  print("ACERTOU MIZERAVI!!! Eu pensei no número {} e você disse {} também, e tudo isso em {} palpites! ".format(num, comp, palp))
+  denovo = str(input("Quer jogar mais uma? [S \ N ] ")).strip().upper()
+  #Aqui você acerta e é oferecido mais uma partida.
+  
+  if denovo != 'N' and denovo != 'NAO' and denovo != 'NÃO' and denovo != 'S' and denovo != 'SIM':
+    denovo = str(input("Desculpe, não entendi. Gostaria de jogar mais uma vez? [ S / N ] ")).strip().upper()
+  #Caso a resposta não seja SIM ou NÃO, ou também não foi escrita corretamente, o programa diz que não entendeu e pergunta mais uma vez  se quer jogar mais uma vez
+print("Ok. Foi um bom jogo.\nObrigado e volte sempre!")
